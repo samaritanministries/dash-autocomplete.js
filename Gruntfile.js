@@ -88,7 +88,11 @@ module.exports = function (grunt) {
           'dist/dash-autocomplete.min.js': [
             '.tmp/scripts/namespace.js',
             '.tmp/scripts/dash-autocomplete/templates.js',
-            '.tmp/scripts/dash-autocomplete/view.js'
+            '.tmp/scripts/dash-autocomplete/search.js',
+            '.tmp/scripts/dash-autocomplete/search_input/view.js',
+            '.tmp/scripts/dash-autocomplete/search_parameters.js',
+            '.tmp/scripts/dash-autocomplete/container_configuration.js',
+            '.tmp/scripts/dash-autocomplete/container_view.js'
           ]
         }
       }
