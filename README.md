@@ -35,7 +35,7 @@ new DashAutocomplete.ContainerView(options).render();
 
 # ContainerConfiguration
 
-The ContainerConfiguration has one function: ```configuration``` that will run validations on the 
+The ContainerConfiguration has one function: ```configuration``` that will run validations on the
 configuration and alert any that are invalid.  It will return an object that the ContainerView
 will use for it's own configuration.
 
@@ -43,7 +43,7 @@ will use for it's own configuration.
 * token (string): this is the access token in order to be allowed to grab task data from the Dash API.
 * el (jQuery selector): the autocomplete container will be rendered in this el.  It will be a jQuery selector of where the autocomplete will be rendered into.
 * url: This is the url you want the tasks to be fetched from.
-* collectionView: A backbone view that will respond to: ```render```, ```showResults```, ```showNoResults```, and ```showError``` 
+* collectionView: A backbone view that will respond to: ```render```, ```showResults```, ```showNoResults```, and ```showError```
 
 # Collection View
 
