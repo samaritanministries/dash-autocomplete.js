@@ -2,7 +2,8 @@
   "name": "dash-autocomplete.js",
   "version": "0.1.0",
   "dependencies": {
-    "dash-spinner.js": "~0.1.0"
+    "dash-spinner.js": "~0.1.0",
+    "spin.js": "~2.0.0"
   },
   "devDependencies": {
     "backbone" :      "~1.1.2",
