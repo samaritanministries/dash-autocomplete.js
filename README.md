@@ -1,4 +1,5 @@
 # DashAutocomplete
+[![Build Status](https://travis-ci.org/samaritanministries/dash-autocomplete.js.svg?branch=master)](https://travis-ci.org/samaritanministries/dash-autocomplete.js)
 
 # Releasing a New Version
 
