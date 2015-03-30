@@ -1,0 +1,27 @@
+{
+  "name": "dash-search.js",
+  "version": "0.0.1",
+  "dependencies": {
+    "dash-spinner.js": "~0.1.0",
+    "spin.js": "~2.0.0"
+  },
+  "devDependencies": {
+    "backbone" :      "~1.1.2",
+    "dash.js" :       "~1.1.1",
+    "jasmine-jquery": "~2.1.0"
+  },
+  "authors": ["smi <smi@8thlight.com>"],
+  "description": "The search component for Dash",
+  "main": "dist/dash-search.min.js",
+  "keywords": [
+    "dash",
+    "search",
+    "autocomplete"
+  ],
+  "license": "MIT",
+  "homepage": "samaritanministries.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samaritanministries/dash-search.js.git"
+  }
+}

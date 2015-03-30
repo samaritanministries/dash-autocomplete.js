@@ -1,0 +1,5 @@
+node_modules
+scripts/bower_components
+.editorconfig
+.gitattributes
+.tmp

@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>Demo Task Autocomplete</title>
+  </head>
+  <div data-id="autocomplete-container"></div>
+
+  <script src="../scripts/bower_components/jquery/dist/jquery.js"></script>
+  <script src="../scripts/bower_components/underscore/underscore.js"></script>
+  <script src="../scripts/bower_components/backbone/backbone.js"></script>
+  <script src="../scripts/bower_components/dash.js/dist/dash.min.js"></script>
+  <script src="../scripts/bower_components/spin.js/spin.js"></script>
+  <script src="../scripts/bower_components/dash-spinner.js/dist/dash-spinner.min.js"></script>
+
+  <script src="../scripts/namespace.js"></script>
+
+  <script src="../.tmp/scripts/dash-autocomplete/templates.js"></script>
+  <script src="../.tmp/scripts/dash-autocomplete/search.js"></script>
+  <script src="../.tmp/scripts/dash-autocomplete/search_input/view.js"></script>
+  <script src="../.tmp/scripts/dash-autocomplete/search_parameters.js"></script>
+  <script src="../.tmp/scripts/dash-autocomplete/container_configuration.js"></script>
+  <script src="../.tmp/scripts/dash-autocomplete/container_view.js"></script>
+
+  <script src="collection_view.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      var appId = 'autocomplete-demo-app';
+      var authConfig = {
+        baseUrl:      "https://sandbox.smchcn.net/asrv/SMI/oauth/authorize",
+        redirectUrl:  "https://localhost:8000/demo/",
+        scopes:       ['workflow'],
+        responseType: 'token',
+        clientId:     'autocomplete-demo-app'
+        };
+
+      var renderAutocomplete = function() {
+        options = new DashAutocomplete.ContainerConfiguration({
+          token: Dash.OAuth.TokenAccessor.get(appId),
+          el: $('[data-id=autocomplete-container]'),
+          url: "https://sandbox.smchcn.net/smi/api/TaskItems/bill_validation_processing/search",
+          collectionView: new Demo.CollectionView(),
+        }).configuration();
+
+        new DashAutocomplete.ContainerView(options).render();
+      };
+
+      var authenticate = function() {
+        var urlGenerator = new Dash.OAuth.UrlGenerator(authConfig);
+        var requester = new Dash.OAuth.AccessRequester(urlGenerator);
+        requester.requestAccess();
+      };
+
+      var response = new Dash.OAuth.Response(window.location.hash || "#");
+      if (response.token()) {
+        Dash.OAuth.TokenAccessor.set(appId, response.token(), parseInt(response.expiresIn()));
+      };
+
+      if (Dash.OAuth.TokenAccessor.get(appId)) {
+        renderAutocomplete();
+      } else {
+        authenticate();
+      };
+    });
+
+  </script>
+</html>
