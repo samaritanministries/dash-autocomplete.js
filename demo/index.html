@@ -36,12 +36,11 @@
       var renderAutocomplete = function() {
         options = new DashAutocomplete.ContainerConfiguration({
           token: Dash.OAuth.TokenAccessor.get(appId),
-          el: $('[data-id=autocomplete-container]'),
           url: "https://sandbox.smchcn.net/smi/api/TaskItems/bill_validation_processing/search",
           collectionView: new Demo.CollectionView(),
         }).configuration();
 
-        new DashAutocomplete.ContainerView(options).render();
+        $('[data-id=autocomplete-container]').html(new DashAutocomplete.ContainerView(options).render().el);
       };
 
       var authenticate = function() {

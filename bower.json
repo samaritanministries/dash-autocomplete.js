@@ -1,6 +1,6 @@
 {
   "name": "dash-autocomplete.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "dependencies": {
     "dash-spinner.js": "~0.1.0",
     "spin.js": "~2.0.0"

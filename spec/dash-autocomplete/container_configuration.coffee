@@ -55,16 +55,7 @@ describe 'DashAutocomplete.ContainerConfiguration', ->
 
       expect(params.el).toEqual(el)
 
-  describe 'validating the parameters', ->
-    it 'alerts the user that the el is required', ->
-      mockWindow = new MockWindow()
-      alertSpy = spyOn(mockWindow, 'alert')
-
-      containerParameters = createContainerConfiguration(el: undefined, mockWindow)
-
-      params = containerParameters.configuration()
-
-      expect(alertSpy).toHaveBeenCalledWith('the "el" parameter must be present.')
+  describe 'validating the parameters', -> 
 
     it 'validates the presence of the token', ->
       mockWindow = new MockWindow()

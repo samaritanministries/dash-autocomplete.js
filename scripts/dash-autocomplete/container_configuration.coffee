@@ -13,8 +13,6 @@ class DashAutocomplete.ContainerConfiguration
 
   alertValidationErrors: ->
     errors = []
-    if _.isUndefined @options.el
-      errors.push('the "el" parameter must be present.')
     if _.isUndefined @options.token
       errors.push('the "token" parameter must be present.')
     if _.isUndefined @options.url
