@@ -10,7 +10,7 @@ Demo.CollectionView = Backbone.View.extend({
     var _this = this;
     this.$el.html("");
     _.each(tasksJson, function(task) {
-      _this.$el.append(task.MemberName);
+      _this.$el.append(task.member_name);
     });
   },
 

@@ -2,7 +2,7 @@ namespace('DashAutocomplete')
 
 class DashAutocomplete.Search
   constructor: (@options={}) ->
-    @collectionView = @options.collectionView
+    @resultsView = @options.resultsView
 
   debouncedSearch: ->
     _.debounce(
@@ -28,7 +28,7 @@ class DashAutocomplete.Search
         @successCallback(tasksJson)
       error: (response, statusCode) =>
         @stopSpinner()
-        @collectionView.showError(response, statusCode)
+        @resultsView.showError(response, statusCode)
 
   startSpinner: ->
     @options.startSpinner()
@@ -42,7 +42,7 @@ class DashAutocomplete.Search
   successCallback: (tasksJson) ->
     @stopSpinner()
     if _.isEmpty tasksJson
-      @collectionView.showNoResults()
+      @resultsView.showNoResults()
     else
-      @collectionView.showResults(tasksJson)
+      @resultsView.showResults(tasksJson)
 

@@ -13,7 +13,7 @@ describe 'DashAutocomplete.ContainerConfiguration', ->
       el:    'some-el',
       token: 'jnsd8suhnd',
       url: 'https://www.example.com',
-      collectionView: new MockCollectionView()
+      resultsView: new MockCollectionView()
     }, options)
 
     new DashAutocomplete.ContainerConfiguration(defaultedOptions, mockWindow)
@@ -27,14 +27,14 @@ describe 'DashAutocomplete.ContainerConfiguration', ->
 
       expect(params.token).toEqual(token)
 
-    it 'returns the collectionView', ->
-      collectionView = {}
+    it 'returns the resultsView', ->
+      resultsView = {}
 
-      containerParameters = createContainerConfiguration(collectionView: collectionView)
+      containerParameters = createContainerConfiguration(resultsView: resultsView)
 
       params = containerParameters.configuration()
 
-      expect(params.collectionView).toEqual(collectionView)
+      expect(params.resultsView).toEqual(resultsView)
 
     it 'returns the url', ->
       url = 'https://www.example-api.com'
@@ -86,51 +86,51 @@ describe 'DashAutocomplete.ContainerConfiguration', ->
 
       expect(alertSpy).toHaveBeenCalledWith('the "url" parameter must be present.')
 
-    it 'validates that the collection view responds to render', ->
+    it 'validates that the resultsView responds to render', ->
       mockWindow = new MockWindow()
       alertSpy = spyOn(mockWindow, 'alert')
-      collectionView = new MockCollectionView()
-      collectionView.render = undefined
+      resultsView = new MockCollectionView()
+      resultsView.render = undefined
 
-      containerParameters = createContainerConfiguration(collectionView: collectionView, mockWindow)
+      containerParameters = createContainerConfiguration(resultsView: resultsView, mockWindow)
 
       params = containerParameters.configuration()
 
-      expect(alertSpy).toHaveBeenCalledWith('the "collectionView" must implement "render".')
+      expect(alertSpy).toHaveBeenCalledWith('the "resultsView" must implement "render".')
 
-    it 'validates that the collection view responds to showResults', ->
+    it 'validates that the resultsView responds to showResults', ->
       mockWindow = new MockWindow()
       alertSpy = spyOn(mockWindow, 'alert')
-      collectionView = new MockCollectionView()
-      collectionView.showResults = undefined
+      resultsView = new MockCollectionView()
+      resultsView.showResults = undefined
 
-      containerParameters = createContainerConfiguration(collectionView: collectionView, mockWindow)
+      containerParameters = createContainerConfiguration(resultsView: resultsView, mockWindow)
 
       params = containerParameters.configuration()
 
-      expect(alertSpy).toHaveBeenCalledWith('the "collectionView" must implement "showResults".')
+      expect(alertSpy).toHaveBeenCalledWith('the "resultsView" must implement "showResults".')
 
-    it 'validates that the collection view responds to showNoResults', ->
+    it 'validates that the resultsView responds to showNoResults', ->
       mockWindow = new MockWindow()
       alertSpy = spyOn(mockWindow, 'alert')
-      collectionView = new MockCollectionView()
-      collectionView.showNoResults = undefined
+      resultsView = new MockCollectionView()
+      resultsView.showNoResults = undefined
 
-      containerParameters = createContainerConfiguration(collectionView: collectionView, mockWindow)
+      containerParameters = createContainerConfiguration(resultsView: resultsView, mockWindow)
 
       params = containerParameters.configuration()
 
-      expect(alertSpy).toHaveBeenCalledWith('the "collectionView" must implement "showNoResults".')
+      expect(alertSpy).toHaveBeenCalledWith('the "resultsView" must implement "showNoResults".')
 
-    it 'validates that the collection view responds to showError', ->
+    it 'validates that the resultsView responds to showError', ->
       mockWindow = new MockWindow()
       alertSpy = spyOn(mockWindow, 'alert')
-      collectionView = new MockCollectionView()
-      collectionView.showError = undefined
+      resultsView = new MockCollectionView()
+      resultsView.showError = undefined
 
-      containerParameters = createContainerConfiguration(collectionView: collectionView, mockWindow)
+      containerParameters = createContainerConfiguration(resultsView: resultsView, mockWindow)
 
       params = containerParameters.configuration()
 
-      expect(alertSpy).toHaveBeenCalledWith('the "collectionView" must implement "showError".')
+      expect(alertSpy).toHaveBeenCalledWith('the "resultsView" must implement "showError".')
 

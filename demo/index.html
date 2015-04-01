@@ -38,7 +38,7 @@
           token: Dash.OAuth.TokenAccessor.get(appId),
           el: $('[data-id=autocomplete-container]'),
           url: "https://sandbox.smchcn.net/smi/api/TaskItems/bill_validation_processing/search",
-          collectionView: new Demo.CollectionView(),
+          resultsView: new Demo.CollectionView(),
         }).configuration();
 
         new DashAutocomplete.ContainerView(options).render();

@@ -7,7 +7,7 @@ class DashAutocomplete.ContainerConfiguration
     @alertValidationErrors()
 
     token: @options.token
-    collectionView: @options.collectionView
+    resultsView: @options.resultsView
     url: @options.url
     el: @options.el
 
@@ -19,17 +19,17 @@ class DashAutocomplete.ContainerConfiguration
       errors.push('the "token" parameter must be present.')
     if _.isUndefined @options.url
       errors.push('the "url" parameter must be present.')
-    if !@doesCollectionViewImplement('render')
-      errors.push('the "collectionView" must implement "render".')
-    if !@doesCollectionViewImplement('showResults')
-      errors.push('the "collectionView" must implement "showResults".')
-    if !@doesCollectionViewImplement('showNoResults')
-      errors.push('the "collectionView" must implement "showNoResults".')
-    if !@doesCollectionViewImplement('showError')
-      errors.push('the "collectionView" must implement "showError".')
+    if !@doesResultsViewImplement('render')
+      errors.push('the "resultsView" must implement "render".')
+    if !@doesResultsViewImplement('showResults')
+      errors.push('the "resultsView" must implement "showResults".')
+    if !@doesResultsViewImplement('showNoResults')
+      errors.push('the "resultsView" must implement "showNoResults".')
+    if !@doesResultsViewImplement('showError')
+      errors.push('the "resultsView" must implement "showError".')
 
     @window.alert(errors.join(' ')) unless _.isEmpty errors
 
-  doesCollectionViewImplement: (functionName) ->
-    !_.isUndefined @options.collectionView[functionName]
+  doesResultsViewImplement: (functionName) ->
+    !_.isUndefined @options.resultsView[functionName]
 

@@ -7,7 +7,7 @@ class DashAutocomplete.ContainerView extends Backbone.View
 
   render: ->
     @$el.html(@template)
-    @$('[data-id=collection-view-container]').html(@options.collectionView.render().el)
+    @$('[data-id=collection-view-container]').html(@options.resultsView.render().el)
     @$('[data-id=search-view-container]').html(@searchInput().render().el)
     @
 

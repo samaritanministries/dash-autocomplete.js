@@ -5,7 +5,7 @@ describe 'DashAutocomplete.Search', ->
     showError: (result) ->
 
   createSearch = (options) ->
-    optionsWithDefaults = _.extend({startSpinner: (->), stopSpinner: (->), collectionView: new CollectionView}, options)
+    optionsWithDefaults = _.extend({startSpinner: (->), stopSpinner: (->), resultsView: new CollectionView}, options)
     new DashAutocomplete.Search(optionsWithDefaults)
 
   describe 'searching', ->
@@ -57,11 +57,11 @@ describe 'DashAutocomplete.Search', ->
 
       expect(stopSpinnerSpy).toHaveBeenCalled()
 
-    it 'has the collection view render the results', ->
+    it 'has the results view render the results', ->
       server = sinon.fakeServer.create()
-      collectionView = new CollectionView()
-      showResultsSpy = spyOn(collectionView, 'showResults')
-      search = createSearch(collectionView: collectionView)
+      resultsView = new CollectionView()
+      showResultsSpy = spyOn(resultsView, 'showResults')
+      search = createSearch(resultsView: resultsView)
       taskJson = [{"task_id": "1"}, {"task_id": "2"}]
       server.respondWith("POST", search.url, [200, { "Content-Type": "application/json" }, JSON.stringify(taskJson)])
 
@@ -70,11 +70,11 @@ describe 'DashAutocomplete.Search', ->
 
       expect(showResultsSpy).toHaveBeenCalledWith(taskJson)
 
-    it 'has the collection view render a no results found screen', ->
+    it 'has the results view render a no results found screen', ->
       server = sinon.fakeServer.create()
-      collectionView = new CollectionView()
-      showNoResultsSpy = spyOn(collectionView, 'showNoResults')
-      search = createSearch(collectionView: collectionView)
+      resultsView = new CollectionView()
+      showNoResultsSpy = spyOn(resultsView, 'showNoResults')
+      search = createSearch(resultsView: resultsView)
       server.respondWith("POST", search.url, [200, { "Content-Type": "application/json" }, '[]'])
 
       search.search()
@@ -84,9 +84,9 @@ describe 'DashAutocomplete.Search', ->
 
     it 'has the collection view render an error screen', ->
       server = sinon.fakeServer.create()
-      collectionView = new CollectionView()
-      showErrorSpy = spyOn(collectionView, 'showError')
-      search = createSearch(collectionView: collectionView)
+      resultsView = new CollectionView()
+      showErrorSpy = spyOn(resultsView, 'showError')
+      search = createSearch(resultsView: resultsView)
       server.respondWith("POST", search.url, [500, { "Content-Type": "application/json" }, '[]'])
 
       search.search()

@@ -23,7 +23,7 @@ describe 'Rendering search results', ->
       token: 'asdfdsf'
       el: $('[data-id=test]')
       url: sandboxUrl
-      collectionView: new CollectionView()
+      resultsView: new CollectionView()
     .configuration()
 
     containerView = new DashAutocomplete.ContainerView(configs).render()

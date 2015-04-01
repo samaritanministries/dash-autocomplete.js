@@ -6,7 +6,7 @@ describe 'DashAutocomplete.ContainerView', ->
       @
 
   containerView = (opts) ->
-    defaultedOpts = _.extend(collectionView: new CollectionView(), opts)
+    defaultedOpts = _.extend(resultsView: new CollectionView(), opts)
     new DashAutocomplete.ContainerView(defaultedOpts)
 
   it 'renders itself inside of the el', ->
@@ -17,13 +17,13 @@ describe 'DashAutocomplete.ContainerView', ->
 
     expect($('#test')).not.toBeEmpty()
 
-  it 'renders the collectionView', ->
-    collectionView = new CollectionView()
-    view = containerView(collectionView: collectionView)
+  it 'renders the resultsView', ->
+    resultsView = new CollectionView()
+    view = containerView(resultsView: resultsView)
 
     view.render()
 
-    expect(view.$el).toContainHtml(collectionView.template)
+    expect(view.$el).toContainHtml(resultsView.template)
 
   it 'renders the search input', ->
     view = containerView()

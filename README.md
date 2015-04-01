@@ -28,7 +28,7 @@ var options = new DashAutocomplete.ContainerConfiguration({
   token: 'my app specific token',
   el: $('[data-id=autocomplete-container]'),
   url: 'the-url-to-POST-to.com',
-  collectionView: new Demo.CollectionView()
+  resultsView: new Demo.CollectionView()
 }).configuration();
 
 new DashAutocomplete.ContainerView(options).render();
@@ -44,25 +44,25 @@ will use for it's own configuration.
 * token (string): this is the access token in order to be allowed to grab task data from the Dash API.
 * el (jQuery selector): the autocomplete container will be rendered in this el.  It will be a jQuery selector of where the autocomplete will be rendered into.
 * url: This is the url you want the tasks to be fetched from.
-* collectionView: A backbone view that will respond to: ```render```, ```showResults```, ```showNoResults```, and ```showError```
+* resultsView: A backbone view that will respond to: ```render```, ```showResults```, ```showNoResults```, and ```showError```
 
-# Collection View
+# Results View
 
 The library will provide everything up to how the task list will be displayed.  In future versions we are likely to change this.
 For right now, we are assuming that you will pass us an object that responds to these 4 functions:
 
 #### render().el
 
-The instance of the collectionView will be rendered into the container's el.  This is typical Backbone View behavior.
+The instance of the resultsView will be rendered into the container's el.  This is typical Backbone View behavior.
 
 #### showResults(tasks)
 
-```showResults``` will take a list of JSON task data.  It is up to the collectionView to determine how those tasks will be
+```showResults``` will take a list of JSON task data.  It is up to the resultsView to determine how those tasks will be
 displayed, and what happens when they are clicked.
 
 #### showNoResults
 
-```showNoResults``` will get called when the request for tasks returns an empty list.  This will allow the collectionView to
+```showNoResults``` will get called when the request for tasks returns an empty list.  This will allow the resultsView to
 customize a no results screen.
 
 #### showError(response, statusCode)
