@@ -7,17 +7,19 @@ class DashAutocomplete.SearchParameters
     search_string: @options.searchValue   || ''
     current_page: @options.currentPage    || 1
     items_per_page: @options.itemsPerPage || 10
-    sort_order: {}
+    sort_order: []
     filters: @filters()
 
   toJSON: ->
     JSON.stringify(@paramData())
 
   filters: ->
-    _filters = {}
+    _filters = []
     if @hasFilter()
-      _filters[@options.filterName] = @options.filterValue
+      _item = {}
+      _item[@options.filterName] = @options.filterValue
+      _filters.push _item
     _filters
 
   hasFilter: ->
-    !!@options.filterName && !! @options.filterValue
+    !!@options.filterName && !!@options.filterValue

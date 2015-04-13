@@ -24,7 +24,7 @@ describe 'DashAutocomplete.Search', ->
 
       search.search('test value')
 
-      expect(ajaxSpy.calls.argsFor(0)[0].data).toEqual('{"search_string":"test value","current_page":1,"items_per_page":10,"sort_order":{},"filters":{}}')
+      expect(ajaxSpy.calls.argsFor(0)[0].data).toEqual('{"search_string":"test value","current_page":1,"items_per_page":10,"sort_order":[],"filters":[]}')
 
     it 'starts the spinner before the request is made', ->
       startSpinnerSpy = jasmine.createSpy('startSpinner')

@@ -55,13 +55,13 @@ describe 'DashAutocomplete.SearchParameters', ->
     params = searchParameters({})
 
     data = params.paramData()
-    expect(data.sort_order).toEqual({})
+    expect(data.sort_order).toEqual([])
 
   it 'defaults filters to an empty object', ->
     params = searchParameters({})
 
     data = params.paramData()
-    expect(data.filters).toEqual({})
+    expect(data.filters).toEqual([])
 
   it 'has a filter string', ->
     params = searchParameters
@@ -69,7 +69,7 @@ describe 'DashAutocomplete.SearchParameters', ->
       filterName: "thename"
 
     data = params.paramData()
-    expect(data.filters.thename).toEqual("123")
+    expect(data.filters[0].thename).toEqual("123")
 
   it 'does not include the filter if the value is missing', ->
     params = searchParameters

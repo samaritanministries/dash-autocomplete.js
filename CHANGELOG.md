@@ -7,3 +7,6 @@ This changelog was started using [these conventions](http://keepachangelog.com/)
 - Changed collectionView parameter to be resultsView.
 - Updated README and demo.
 
+## [1.1.0]
+### Changed
+- Modified Filter and SortOrder objects in search_parameters to be arrays to support modifications in SMIAPI
