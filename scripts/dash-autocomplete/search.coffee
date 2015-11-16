@@ -9,7 +9,7 @@ class DashAutocomplete.Search
       (
         (searchValue) =>
           @search(searchValue)
-      ), 300
+      ), 300, true
     )
 
   search: (searchValue) ->
@@ -45,4 +45,3 @@ class DashAutocomplete.Search
       @resultsView.showNoResults()
     else
       @resultsView.showResults(tasksJson)
-
