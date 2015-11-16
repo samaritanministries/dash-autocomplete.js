@@ -7,6 +7,7 @@ describe 'Rendering search results', ->
     showNoResults: ->
     showError: ->
     showResults: (data) ->
+      @render()
       collection = new Backbone.Collection(data)
       collection.each((model) => @$el.append(model.get('task_name')))
 

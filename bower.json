@@ -8,7 +8,8 @@
   "devDependencies": {
     "backbone" :      "~1.1.2",
     "dash.js" :       "~1.1.1",
-    "jasmine-jquery": "~2.1.0"
+    "jasmine-jquery": "~2.1.0",
+    "jasmine-sinon": "~0.4.0"
   },
   "authors": ["smi <smi@8thlight.com>"],
   "description": "The search and autocomplete component for Dash",

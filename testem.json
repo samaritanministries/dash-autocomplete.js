@@ -3,7 +3,8 @@
   "before_tests": "grunt build:spec",
   "launch_in_ci": ["PhantomJS"],
   "src_files": [
-    "spec/sinon.js",
+    "scripts/bower_components/sinonjs/sinon.js",
+    "scripts/bower_components/jasmine-sinon/lib/jasmine-sinon.js",
     "scripts/bower_components/jquery/dist/jquery.js",
     "scripts/bower_components/underscore/underscore.js",
     "scripts/bower_components/backbone/backbone.js",
