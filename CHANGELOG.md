@@ -2,7 +2,7 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
-## [1.3.0]
+## [1.3.1]
 ### Changed
  * Undo change to perform first search immediately
 
