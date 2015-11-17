@@ -33,6 +33,9 @@ describe 'Rendering search results', ->
       [200, { 'Content-Type': 'application/json' }, JSON.stringify(response)]
     )
 
+  waitForSearchToFinish = ->
+    jasmine.clock().tick(111111000000) #this is ridiculous, but I can't get the debounce to time properly
+
   afterEach ->
     jasmine.clock().uninstall()
 
@@ -49,6 +52,7 @@ describe 'Rendering search results', ->
     }])
 
     $('[data-id=text-input]').val('test').keyup()
+    waitForSearchToFinish()
     @server.respond()
 
     expect(@containerView.$el).toContainText('First Task')
@@ -58,6 +62,7 @@ describe 'Rendering search results', ->
     stubSearchResults(@server, [])
 
     $('[data-id=text-input]').val('test').keyup()
+    waitForSearchToFinish()
 
     expect(@containerView.$('[data-id=spinner-container]')).not.toBeEmpty()
     @server.respond()

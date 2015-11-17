@@ -93,15 +93,3 @@ describe 'DashAutocomplete.Search', ->
       server.respond()
 
       expect(showErrorSpy).toHaveBeenCalled()
-
-  describe "The debounced search", ->
-
-    it "performs the search immediately", ->
-      debounceSpy = spyOn(_, "debounce")
-      search = createSearch()
-
-      search.debouncedSearch()
-
-      expect(debounceSpy).toHaveBeenCalled()
-      isImmediate = debounceSpy.calls.mostRecent().args[2]
-      expect(isImmediate).toBeTruthy()

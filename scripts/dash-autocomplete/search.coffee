@@ -9,7 +9,7 @@ class DashAutocomplete.Search
       (
         (searchValue) =>
           @search(searchValue)
-      ), 300, true
+      ), 300
     )
 
   search: (searchValue) ->
