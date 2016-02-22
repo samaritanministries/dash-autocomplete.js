@@ -7,6 +7,7 @@ describe 'DashAutocomplete.ContainerConfiguration', ->
     showResults: ->
     showNoResults: ->
     showError: ->
+    searchCriteriaCleared: ->
 
   createContainerConfiguration = (options, mockWindow=new MockWindow()) ->
     defaultedOptions = _.extend({
@@ -110,6 +111,18 @@ describe 'DashAutocomplete.ContainerConfiguration', ->
 
       expect(alertSpy).toHaveBeenCalledWith('the "resultsView" must implement "showResults".')
 
+    it 'validates that the resultsView responds to searchCriteriaCleared', ->
+      mockWindow = new MockWindow()
+      alertSpy = spyOn(mockWindow, 'alert')
+      resultsView = new MockCollectionView()
+      resultsView.searchCriteriaCleared = undefined
+
+      containerParameters = createContainerConfiguration(resultsView: resultsView, mockWindow)
+
+      params = containerParameters.configuration()
+
+      expect(alertSpy).toHaveBeenCalledWith('the "resultsView" must implement "searchCriteriaCleared".')
+
     it 'validates that the resultsView responds to showNoResults', ->
       mockWindow = new MockWindow()
       alertSpy = spyOn(mockWindow, 'alert')
@@ -133,4 +146,3 @@ describe 'DashAutocomplete.ContainerConfiguration', ->
       params = containerParameters.configuration()
 
       expect(alertSpy).toHaveBeenCalledWith('the "resultsView" must implement "showError".')
-

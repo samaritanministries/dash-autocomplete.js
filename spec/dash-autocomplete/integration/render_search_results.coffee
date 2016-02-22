@@ -10,6 +10,7 @@ describe 'Rendering search results', ->
       @render()
       collection = new Backbone.Collection(data)
       collection.each((model) => @$el.append(model.get('task_name')))
+    searchCriteriaCleared: ->
 
   beforeEach ->
     jasmine.clock().install()

@@ -25,6 +25,8 @@ class DashAutocomplete.ContainerConfiguration
       errors.push('the "resultsView" must implement "showResults".')
     if !@doesResultsViewImplement('showNoResults')
       errors.push('the "resultsView" must implement "showNoResults".')
+    if !@doesResultsViewImplement('searchCriteriaCleared')
+      errors.push('the "resultsView" must implement "searchCriteriaCleared".')
     if !@doesResultsViewImplement('showError')
       errors.push('the "resultsView" must implement "showError".')
 
@@ -32,4 +34,3 @@ class DashAutocomplete.ContainerConfiguration
 
   doesResultsViewImplement: (functionName) ->
     !_.isUndefined @options.resultsView[functionName]
-

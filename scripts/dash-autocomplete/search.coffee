@@ -25,7 +25,7 @@ class DashAutocomplete.Search
       data: @parameterize(searchValue)
       contentType: "application/json"
       success: (tasksJson) =>
-        @successCallback(tasksJson)
+        @successCallback(tasksJson, searchValue)
       error: (response, statusCode) =>
         @stopSpinner()
         @resultsView.showError(response, statusCode)
@@ -39,9 +39,11 @@ class DashAutocomplete.Search
   parameterize: (searchValue) ->
     new DashAutocomplete.SearchParameters(searchValue: searchValue).toJSON()
 
-  successCallback: (tasksJson) ->
+  successCallback: (tasksJson, searchValue) ->
     @stopSpinner()
-    if _.isEmpty tasksJson
-      @resultsView.showNoResults()
-    else
+    if tasksJson.length > 0
       @resultsView.showResults(tasksJson)
+    else if searchValue == ""
+      @resultsView.searchCriteriaCleared()
+    else
+      @resultsView.showNoResults()
