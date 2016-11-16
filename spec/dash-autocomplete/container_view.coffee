@@ -32,3 +32,12 @@ describe 'DashAutocomplete.ContainerView', ->
 
     expect(view.$el).toContainHtml(new DashAutocomplete.SearchInput.View().render().el)
 
+  it "uses a small spinner", ->
+    buildSpinnerSpy = spyOn(DashSpinner, "Spinner").and.returnValue(spin: ->)
+    view = containerView().render()
+
+    view.startSpinner()
+
+    expect(buildSpinnerSpy).toHaveBeenCalled()
+    spinnerConfiguration = buildSpinnerSpy.calls.argsFor(0)[0].spinnerConfiguration
+    expect(spinnerConfiguration).toEqual(DashSpinner.Configuration.small)

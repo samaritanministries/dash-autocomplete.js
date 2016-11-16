@@ -20,7 +20,9 @@ class DashAutocomplete.ContainerView extends Backbone.View
       callback: new DashAutocomplete.Search(options).debouncedSearch()
 
   spinner: ->
-    @s ?= new DashSpinner.Spinner(target: @$('[data-id=spinner-container]'))
+    @s ?= new DashSpinner.Spinner
+      spinnerConfiguration: DashSpinner.Configuration.small
+      target: @$('[data-id=spinner-container]')
 
   startSpinner: =>
     @spinner().spin()
@@ -29,4 +31,3 @@ class DashAutocomplete.ContainerView extends Backbone.View
   stopSpinner: =>
     @spinner().stop()
     @$('[data-id=collection-view-container]').show()
-
