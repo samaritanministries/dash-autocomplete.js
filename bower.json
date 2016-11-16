@@ -1,9 +1,8 @@
 {
   "name": "dash-autocomplete.js",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "dependencies": {
-    "dash-spinner.js": "~0.2.2",
-    "spin.js": "~2.0.2"
+    "dash-spinner.js": "~0.3.0"
   },
   "devDependencies": {
     "backbone" :      "~1.1.2",
@@ -13,7 +12,6 @@
   },
   "authors": ["smi <smi@8thlight.com>"],
   "description": "The search and autocomplete component for Dash",
-  "main": "dist/dash-search.min.js",
   "keywords": [
     "dash",
     "search",
