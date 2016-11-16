@@ -2,6 +2,14 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [1.5.1] 2016-11-15
+### Changed
+ * Use small spinner
+
+## [1.5.0] 2016-11-15
+### Changed
+ * Switch to use Dash Spinner 0.3.0
+
 ## [1.3.1]
 ### Changed
  * Undo change to perform first search immediately
