@@ -65,6 +65,7 @@ describe 'Rendering search results', ->
     $('[data-id=text-input]').val('test').keyup()
     waitForSearchToFinish()
 
-    expect(@containerView.$('[data-id=spinner-container]')).not.toBeEmpty()
+    spinnerContainer = @containerView.$('[data-id=spinner-container]')
+    expect(spinnerContainer).toHaveClass("dash-spinner")
     @server.respond()
-    expect(@containerView.$('[data-id=spinner-container]')).toBeEmpty()
+    expect(spinnerContainer).not.toHaveClass("dash-spinner")
