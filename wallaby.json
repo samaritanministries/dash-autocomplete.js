@@ -6,7 +6,7 @@
     "scripts/bower_components/underscore/underscore.js",
     "scripts/bower_components/backbone/backbone.js",
     "scripts/bower_components/jasmine-jquery/lib/jasmine-jquery.js",
-    "scripts/bower_components/dash-spinner.js/dist/dash-spinner.min.js",
+    "scripts/bower_components/dash-spinner.js/dist/dash-spinner.js",
     "scripts/bower_components/spin.js/spin.js",
     "scripts/namespace.js",
     ".tmp/scripts/dash-autocomplete/templates.js",
