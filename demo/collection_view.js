@@ -8,10 +8,14 @@ Demo.CollectionView = Backbone.View.extend({
 
   showResults: function(tasksJson){
     var _this = this;
-    this.$el.html("");
+    this.$el.empty();
     _.each(tasksJson, function(task) {
       _this.$el.append(task.member_name);
     });
+  },
+
+  searchCriteriaCleared: function(){
+    this.$el.empty();
   },
 
   showNoResults: function(){

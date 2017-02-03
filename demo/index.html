@@ -8,8 +8,7 @@
   <script src="../scripts/bower_components/underscore/underscore.js"></script>
   <script src="../scripts/bower_components/backbone/backbone.js"></script>
   <script src="../scripts/bower_components/dash.js/dist/dash.min.js"></script>
-  <script src="../scripts/bower_components/spin.js/spin.js"></script>
-  <script src="../scripts/bower_components/dash-spinner.js/dist/dash-spinner.min.js"></script>
+  <script src="../scripts/bower_components/dash-spinner.js/dist/dash-spinner.js"></script>
 
   <script src="../scripts/namespace.js"></script>
 
@@ -26,7 +25,7 @@
     $(document).ready(function(){
       var appId = 'autocomplete-demo-app';
       var authConfig = {
-        baseUrl:      "https://sandbox.smchcn.net/asrv/SMI/oauth/authorize",
+        baseUrl:      "https://dev-accounts.smchcn.net/Auth/SMI/oauth/authorize",
         redirectUrl:  "https://localhost:8000/demo/",
         scopes:       ['workflow'],
         responseType: 'token',
@@ -37,7 +36,7 @@
         options = new DashAutocomplete.ContainerConfiguration({
           token: Dash.OAuth.TokenAccessor.get(appId),
           el: $('[data-id=autocomplete-container]'),
-          url: "https://sandbox.smchcn.net/smi/api/TaskItems/bill_validation_processing/search",
+          url: "https://dapi.smchcn.net/api/v1.0/TaskItems/bill_validation_processing/search",
           resultsView: new Demo.CollectionView(),
         }).configuration();
 
